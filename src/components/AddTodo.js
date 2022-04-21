@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
-import { View, StyleSheet, TextInput, Button, Alert } from 'react-native'
+import { View, StyleSheet, TextInput, Button, Alert, Keyboard } from 'react-native'
 import { THEME } from '../theme'
+import { Ionicons } from '@expo/vector-icons';
 
 export const AddTodo = ({ onSubmit }) => {
   const [value, setValue] = useState('')
@@ -9,6 +10,7 @@ export const AddTodo = ({ onSubmit }) => {
     if (value.trim()) {
       onSubmit(value)
       setValue('')
+      Keyboard.dismiss()
     } else {
       Alert.alert('ToDo title cannot be empty')
     }
@@ -23,8 +25,10 @@ export const AddTodo = ({ onSubmit }) => {
         placeholder='Enetr ToDo title...'
         autoCorrect={false}
         autoCapitalize='none'
-      />
-      <Button title='Add' onPress={pressHandler} />
+      /> 
+      <Ionicons.Button name="add-circle-outline" size={24} color="white" onPress={pressHandler}>
+         Add
+      </Ionicons.Button>
     </View>
   )
 }
@@ -41,6 +45,7 @@ const styles = StyleSheet.create({
     padding: 10,
     borderStyle: 'solid',
     borderBottomWidth: 2,
-    borderBottomColor: THEME.MAIN_COLOR
+    borderBottomColor: THEME.MAIN_COLOR,
+    fontFamily: 'ptsans-regular'
   }
 })
