@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 import {View, StyleSheet, Button, TextInput, Modal, Alert} from 'react-native'
 import { THEME } from '../theme'
+import { AppButton } from '../ui/AppButton'
 
 export const EditModal = ({visible, value, onCancel, onSave}) => {
     const [title, setTitle] = useState(value)
@@ -22,8 +23,8 @@ export const EditModal = ({visible, value, onCancel, onSave}) => {
                 autoCapitalize='none'
                 maxLength={35}/>
                 <View style={styles.buttons}>
-                    <Button title='Cancel' color={THEME.RED_COLOR} onPress={onCancel}/>
-                    <Button title='Save' onPress={saveHandler}/>
+                    <AppButton color={THEME.RED_COLOR} onPress={onCancel} style={styles.button}>Cancel</AppButton>
+                    <AppButton onPress={saveHandler}>Save</AppButton>
                 </View>
             </View>
         </Modal>
@@ -47,5 +48,5 @@ const styles = StyleSheet.create({
         marginTop: 10,
         flexDirection: 'row',
         justifyContent: 'space-around'
-      }
+      },
 })
