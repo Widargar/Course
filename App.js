@@ -4,14 +4,32 @@ import { StyleSheet, View, Alert } from 'react-native';
 import { Navbar } from './src/components/Navbar'
 import { MainScreen } from './src/screens/MainScreen'
 import { TodoScreen } from './src/screens/TodoScreen'
-import { Platform } from 'react-native-web';
+import { Platform } from 'react-native';
+import * as Font from 'expo-font'
+import AppLoading from 'expo-app-loading';
+
+async function loadApplication() {
+  await Font.loadAsync({
+    'montserrat-bold': require('./src/fonts/Montserrat-Bold.ttf'),
+    'montserrat-regular': require('./src/fonts/Montserrat-Regular.ttf')
+  })
+}
 
 export default function App() {
-  const [todoId, setTodoId] = useState('2')
+  const [isLoaded, setIsLoaded] = useState(false)
+  const [todoId, setTodoId] = useState(null)
   const [todos, setTodos] = useState([
     {id: '1', title: 'To do'},
     {id: '2', title: 'Do ToDo'}
   ])
+
+  if (!isLoaded){
+    return(
+      <AppLoading startAsync={loadApplication}
+        onError={err => console.log(err)}
+        onFinish={() => setIsLoaded(true)}/>
+    ) 
+  }
 
   const addTodo = title => {
     setTodos(prev => [
