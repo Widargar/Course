@@ -10,11 +10,7 @@ export const Todo = ({ todo, onRemove, onOpen }) => {
       onLongPress={onRemove.bind(null, todo.id)}
     >
       <View style={styles.todo}>
-<<<<<<< HEAD
-        <Text style={styles.title}>{todo.title}</Text>
-=======
         <AppText style={styles.title}>{todo.title}</AppText>
->>>>>>> 714bb543e3c2ccab1ae470b063af8c1834f55e4f
       </View>
     </TouchableOpacity>
   )
@@ -31,10 +27,6 @@ const styles = StyleSheet.create({
     marginBottom: 10
   },
   title: {
-<<<<<<< HEAD
-    fontFamily: 'montserrat-regular'
-=======
     fontSize: 18
->>>>>>> 714bb543e3c2ccab1ae470b063af8c1834f55e4f
   }
 })
