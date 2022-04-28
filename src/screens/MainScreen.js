@@ -25,6 +25,7 @@ export const MainScreen = ({ openToDo }) => {
   
 
   return (
+
     <View>
       <AddTodo onSubmit={addTodo} />
       {todos.length ? 

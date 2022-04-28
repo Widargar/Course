@@ -12,7 +12,11 @@
   "dependencies": {
     "@expo/vector-icons": "^12.0.0",
     "expo": "~44.0.0",
+<<<<<<< HEAD
+    "expo-app-loading": "^1.3.0",
+=======
     "expo-app-loading": "~1.3.0",
+>>>>>>> 714bb543e3c2ccab1ae470b063af8c1834f55e4f
     "expo-font": "^10.0.5",
     "expo-status-bar": "~1.2.0",
     "react": "17.0.1",
