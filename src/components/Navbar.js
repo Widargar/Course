@@ -8,7 +8,8 @@ export const Navbar = ({ title }) => {
   return (
     <View style={{...styles.navbar, ...Platform.select({
       ios: styles.navbarIOS,
-      android: styles.navbarAndroid
+      android: styles.navbarAndroid,
+      web: styles.navbarWeb
     })}}>
       <AppTextBold style={styles.text}>{title}</AppTextBold>
     </View>
@@ -20,12 +21,17 @@ const styles = StyleSheet.create({
     height: 70,
     alignItems: 'center',
     justifyContent: 'flex-end',
-    paddingBottom: 10
+    paddingBottom: 10,
+    backgroundColor: THEME.MAIN_COLOR,
   },
   navbarAndroid: {
     backgroundColor: THEME.MAIN_COLOR,
   },
-  navbarIOS:{
+  navbarIOS: {
+    borderBottomColor: THEME.MAIN_COLOR,
+    borderBottomWidth: 1
+  },
+  navbarWeb: {
     borderBottomColor: THEME.MAIN_COLOR,
     borderBottomWidth: 1
   },
